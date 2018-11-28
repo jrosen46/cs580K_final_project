@@ -1,0 +1,27 @@
+# Virtual environments
+venv/
+
+# Byte-compiled / optimized /DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# tests / coverage reports
+.cache
+.tox/
+.coverage
+.coverage.*
+
+# DotEnv configuration
+.env

@@ -1,0 +1,29 @@
+# need to figure out exactly which parameters we are going to fill in here ...
+
+{%- for p in params %}
+{%- set name = p["name"] %}
+{%- set left_up_pix = p["left_up_pix"] %}
+{%- set right_bot_pix = p["right_bot_pix"] %}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: renderjob-{{ name }}
+  labels:
+    jobgroup: renderjob 
+spec:
+  template:
+    metadata:
+      name: renderjob
+      labels:
+        jobgroup: renderjob
+    spec:
+      containers:
+      - name: ray_trace
+        image: ray_tracer:latest
+        # TODO: not sure how the tracer is going to be containerized
+        #       fill the command in later and pass in any specifications
+        #       like pixel range to render, etc
+        command: [""]
+      restartPolicy: Never
+---
+{%- endfor %}
