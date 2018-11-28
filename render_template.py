@@ -9,7 +9,7 @@ At this point, using Job Template Expansion to create one Job object for each
 'tracer' seems to be the simplest/fastest way to get a proof of concept
 working.  There are definitely more sophisticated ways to do this (i.e. worker
 queues, etc.), but we are trading functionality for simplicity. Our method is
-inteneded to be used with the creation of one rendered image ... it does not
+intended to be used with the creation of one rendered image ... it does not
 really have the ability to dynamically scale our application based on a
 real-time, continuous stream of tasks.
 
