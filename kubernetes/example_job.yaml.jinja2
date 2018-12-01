@@ -17,7 +17,17 @@ spec:
       containers:
       - name: c
         image: busybox
-        command: ["sh", "-c", "echo Processing URL {{ url }} && sleep 5"]
+        volumeMounts:
+        - mountPath: /test-pd
+          name: test-volume
+        command: ["sh", "-c", "echo Processing URL {{ url }} >> /test-pd/testing{{ name }}.txt && sleep 5"]
       restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
 ---
 {%- endfor %}
