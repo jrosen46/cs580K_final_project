@@ -157,7 +157,6 @@ def main(part, width, height, scene_location):
     O = np.array([0., 0.35, -1.])  # Camera.
     Q = np.array([0., 0., 0.])  # Camera pointing to.
 
-
     # Screen coordinates: x0, y0, x1, y1.
     r = width / height
     S = (-1., -1. / r + .25, 1., 1. / r + .25)
