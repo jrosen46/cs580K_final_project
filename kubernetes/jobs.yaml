@@ -1,0 +1,2234 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-1
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-1
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-1
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-1
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-2
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-2
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-2
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-2
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-3
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-3
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-3
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-3
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-4
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-4
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-4
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-4
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-5
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-5
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-5
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-5
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-6
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-6
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-6
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-6
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-7
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-7
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-7
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-7
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-8
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-8
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-8
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-8
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-9
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-9
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-9
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller-9
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width=1200",
+                  "--height=900",
+				  "--index=1",
+                  "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-0-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "0-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-1-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "1-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-2-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "2-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: worker-3-3
+  labels:
+    jobgroup: worker
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        jobgroup: worker
+    spec:
+      containers:
+      - name: rtw
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "worker.py", "3-3", "--width=1200",
+                  "--height=900", "--scene_location=/data/state.pickle"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---

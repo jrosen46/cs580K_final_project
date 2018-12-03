@@ -1,7 +1,9 @@
+{%- for p in params %}
+{%- set controller_id = p["controller_id"] %}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: controller
+  name: controller-{{ controller_id }}
   labels:
     jobgroup: contr
 spec:
@@ -20,6 +22,7 @@ spec:
         command: ["python", "controller.py",
                   "--width={{ params[0].get('width') }}",
                   "--height={{ params[0].get('height') }}",
+				  "--index={{ params[0].get('controller_id') }}",
                   "--scene_location={{ params[0].get('scene_location') }}"]
       restartPolicy: Never
       volumes:
@@ -29,6 +32,7 @@ spec:
           path: /data
           # this field is optional
           type: DirectoryOrCreate
+{%- endfor %}
 ---
 {%- for p in params %}
 {%- set part = p["part"] %}

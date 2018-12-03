@@ -31,15 +31,15 @@ def add_plane(position, normal, color_plane0, color_plane1):
         reflection=.25)
 
 
-def create_scene():
+def create_scene(i):
     """Creates and serializes scene description to persistent volume."""
 
     scene_params = {
         # list of scene objects
         'scene_objects': [
-            add_sphere([.75, .1, 1.], .6, [0., 0., 1.]),
+            add_sphere([i*np.sin(.75), i*np.sin(.1), 1.], .6, [0., 0., 1.]),
             add_sphere([-.75, .1, 2.25], .6, [.5, .223, .5]),
-            add_sphere([-2.75, .1, 3.5], .6, [1., .572, .184]),
+            add_sphere([i*np.sin(-2.75), .1, i*np.sin(3.5)], .6, [1., .572, .184]),
             add_plane([0., -.5, 0.], [0., 1., 0.],
                       1. * np.ones(3), 0. * np.ones(3)),
         ],
@@ -145,13 +145,14 @@ def combine_img_pieces(img_dir, width, match_str=r'img_(\d)_of_(\d).png',
     final_np_image = np.concatenate(np_imgs, axis=1)
     final_png = Image.fromarray(final_np_image)
     final_png.save(os.path.join(img_dir, outfile))
+    print("finished cobine")
 
 
-def main(width, height, scene_location):
+def main(width, height, index, scene_location):
     """
     # TODO: Add documentation
     """
-    scene = create_scene()
+    scene = create_scene(index)
     save_scene(scene, scene_location)
 
     img_dir = os.path.dirname(scene_location)
@@ -167,7 +168,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Tracing controller.')
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
+    parser.add_argument('--index', type=int, default=1)
     parser.add_argument('-s', '--scene_location', default='/data/state.pickle')
     args = parser.parse_args()
 
-    main(args.width, args.height, args.scene_location)
+    main(args.width, args.height, args.index, args.scene_location)
