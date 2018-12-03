@@ -106,7 +106,6 @@ def workers_finished(img_dir, match_str=r'img_(\d)_of_(\d).png'):
     -------
     """
     img_paths = gather_image_paths(img_dir, match_str)
-    print(img_paths)
 
     if not img_paths:
         return False
@@ -135,8 +134,6 @@ def combine_img_pieces(img_dir, width, match_str=r'img_(\d)_of_(\d).png',
         raise ValueError("Format of img paths must have been changed ...")
 
     num_workers = int(re.search(match_str, img_paths[0]).group(2))
-    print(num_workers)
-    print(img_paths)
     assert num_workers == len(img_paths)
 
     interval = width // num_workers
