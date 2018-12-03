@@ -170,8 +170,8 @@ def main(width, height, part, scene_location):
     r = width / height
     S = (-1., -1. / r + .25, 1., 1. / r + .25)
 
-    img_part = int(part.split('/')[0])
-    num_workers = int(part.split('/')[1]) + 1
+    img_part = int(part.split('-')[0])
+    num_workers = int(part.split('-')[1]) + 1
     w_add = 2. / num_workers
 
     # Loop through all pixels.
@@ -212,7 +212,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Tracing worker.')
     parser.add_argument('part', type=str,
-                        help="part of image: format='n/total'")
+                        help="part of image: format='{n}-{total}'")
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
     parser.add_argument('-s', '--scene_location', default='state.pickle')

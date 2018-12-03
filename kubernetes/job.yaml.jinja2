@@ -1,29 +1,26 @@
-# need to figure out exactly which parameters we are going to fill in here ...
-
 {%- for p in params %}
-{%- set name = p["name"] %}
-{%- set left_up_pix = p["left_up_pix"] %}
-{%- set right_bot_pix = p["right_bot_pix"] %}
+{%- set part = p["part"] %}
+{%- set width = p["width"] %}
+{%- set height = p["height"] %}
+{%- set location = p["scene_location"] %}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: renderjob-{{ name }}
+  name: worker-{{ part }}
   labels:
-    jobgroup: renderjob 
+    jobgroup: worker
 spec:
   template:
     metadata:
-      name: renderjob
+      name: worker
       labels:
-        jobgroup: renderjob
+        jobgroup: worker
     spec:
       containers:
-      - name: ray_trace
-        image: ray_tracer:latest
-        # TODO: not sure how the tracer is going to be containerized
-        #       fill the command in later and pass in any specifications
-        #       like pixel range to render, etc
-        command: [""]
+      - name: rtw
+        image: jaredscience/ray_tracer:latest
+        command: ["python", "worker.py", "{{ part }}", "--width={{ width }}",
+                  "--height={{ height }}", "--scene_location={{ location }}"]
       restartPolicy: Never
 ---
 {%- endfor %}
