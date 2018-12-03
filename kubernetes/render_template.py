@@ -81,7 +81,7 @@ def main(yaml_tmpl_path, img_width, img_height, num_workers,
     # create params to send to controller and workers
     tmpl_params = {
         'params': [
-            {'part': f'{i}-{num_workers-1}', 'width': img_width,
+            {'part': '{}-{}'.format(i, num_workers-1), 'width': img_width,
              'height': img_height, 'scene_location': scene_location}
             for i in range(num_workers)
         ]
@@ -91,7 +91,7 @@ def main(yaml_tmpl_path, img_width, img_height, num_workers,
     with open(out_yaml_path, 'w') as f:
         f.write(tmpl.render(**tmpl_params))
 
-    cmd = f'kubectl create -f {out_yaml_path}'
+    cmd = 'kubectl create -f {}'.format(out_yaml_path)
     ret = subprocess.run(cmd.split(), stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE, encoding='utf-8')
 
