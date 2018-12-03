@@ -130,8 +130,7 @@ def load_scene(scene_location):
     """
     Parameters
     ----------
-    scene_location : str, choices={'minikube_hostPath',
-                                   'gke_persistent_volumne'}
+    scene_location : str
     """
     while not os.path.exists(scene_location):
         time.sleep(1)
