@@ -16,19 +16,18 @@ spec:
         image: jaredscience/ray_tracer_controller:latest
         volumeMounts:
         - mountPath: /data
-          name: test-volume
+          name: nfs-server
         command: ["python", "controller.py",
                   "--width={{ params[0].get('width') }}",
                   "--height={{ params[0].get('height') }}",
                   "--scene_location={{ params[0].get('scene_location') }}"]
       restartPolicy: Never
       volumes:
-      - name: test-volume
-        hostPath:
-          # directory location on host
-          path: /data
-          # this field is optional
-          type: DirectoryOrCreate
+      - name: nfs-server
+        nfs:
+          # TODO: put url here
+          server: 10.11.252.189
+          path: /
 ---
 {%- for p in params %}
 {%- set part = p["part"] %}
@@ -53,16 +52,15 @@ spec:
         image: jaredscience/ray_tracer_worker:latest
         volumeMounts:
         - mountPath: /data
-          name: test-volume
+          name: nfs-server
         command: ["python", "worker.py", "{{ part }}", "--width={{ width }}",
                   "--height={{ height }}", "--scene_location={{ location }}"]
       restartPolicy: Never
       volumes:
-      - name: test-volume
-        hostPath:
-          # directory location on host
-          path: /data
-          # this field is optional
-          type: DirectoryOrCreate
+      - name: nfs-server
+        nfs:
+          # TODO: put url here
+          server: 10.11.252.189
+          path: /
 ---
 {%- endfor %}
