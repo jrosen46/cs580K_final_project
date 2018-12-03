@@ -4,7 +4,6 @@
 worker.py
 
 """
-
 import argparse
 import pickle
 
@@ -133,26 +132,18 @@ def load_scene(scene_location):
     scene_location : str, choices={'minikube_hostPath',
                                    'gke_persistent_volumne'}
     """
-    with open('state.pickle', 'rb') as f:
+    while not os.path.exists(scene_location):
+        time.sleep(1)
+
+    with open(scene_location, 'rb') as f:
         state = pickle.load(f)
+
     return state
 
-    #if scene_location == 'minikube_hostPath':
-    #    with open(os.path.join(log_dir, 'state.pickle'), 'rb') as f:
-    #        state = pickle.load(f)
-    #elif scene_location == 'gke_persistent_volume':
-    #    pass
-    #else:
-    #    raise ValueError(f"`scene_location` parameter: '{scene_location}' "
-    #                     f"not understood.")
-    
 
-
-
-def main(width, height, part, scene_location):
+def main(part, width, height, scene_location):
     """
     """
-
     scene_dict = load_scene(scene_location=scene_location)
     trace_ray_kwargs = {
         k: v for k, v in scene_dict.items()
@@ -180,7 +171,7 @@ def main(width, height, part, scene_location):
     img = np.zeros((height, width, 3))
     for i, x in enumerate(np.linspace(S[0]+img_part*w_add,
                                       S[0]+(img_part+1)*w_add,
-                                      width / num_workers),
+                                      width // num_workers),
                           start=img_part*(width // num_workers)):
         if i % 10 == 0:
             print(f"{i/float(width)*100}%")
@@ -205,7 +196,9 @@ def main(width, height, part, scene_location):
             img[height - j - 1, i, :] = np.clip(col, 0, 1)
 
     # TODO: going to end up saving this to server
-    plt.imsave(f'img_{img_part+1}_of_{num_workers}.png', img)
+    img_path = os.path.join(os.path.dirname(scene_location),
+                            f'img_{img_part+1}_of_{num_workers}.png')
+    plt.imsave(img_path, img)
 
 
 if __name__ == '__main__':
@@ -215,7 +208,7 @@ if __name__ == '__main__':
                         help="part of image: format='{n}-{total}'")
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
-    parser.add_argument('-s', '--scene_location', default='state.pickle')
+    parser.add_argument('-s', '--scene_location', default='/data/state.pickle')
     args = parser.parse_args()
 
-    main(args.width, args.height, args.part, args.scene_location)
+    main(args.part, args.width, args.height, args.scene_location)

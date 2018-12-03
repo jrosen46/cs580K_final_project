@@ -1,3 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: controller
+  labels:
+    jobgroup: contr
+spec:
+  template:
+    metadata:
+      name: contr
+      labels:
+        jobgroup: contr
+    spec:
+      containers:
+      - name: rtc
+        image: jaredscience/ray_tracer_controller:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
+        command: ["python", "controller.py",
+                  "--width={{ params[0].get('width') }}",
+                  "--height={{ params[0].get('height') }}",
+                  "--scene_location={{ params[0].get('scene_location') }}"]
+      restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
+---
 {%- for p in params %}
 {%- set part = p["part"] %}
 {%- set width = p["width"] %}
@@ -18,9 +50,19 @@ spec:
     spec:
       containers:
       - name: rtw
-        image: jaredscience/ray_tracer:latest
+        image: jaredscience/ray_tracer_worker:latest
+        volumeMounts:
+        - mountPath: /data
+          name: test-volume
         command: ["python", "worker.py", "{{ part }}", "--width={{ width }}",
                   "--height={{ height }}", "--scene_location={{ location }}"]
       restartPolicy: Never
+      volumes:
+      - name: test-volume
+        hostPath:
+          # directory location on host
+          path: /data
+          # this field is optional
+          type: DirectoryOrCreate
 ---
 {%- endfor %}
