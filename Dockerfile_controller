@@ -1,0 +1,10 @@
+FROM python:3
+
+WORKDIR /app
+
+COPY controller.py /app
+COPY requirements.txt /app
+# may need if we want to send output to object storage
+COPY google_credentials.txt /app    
+
+RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
