@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: controller
+  name: controller-{{ contr_name[0]['contr_name'] }}
   labels:
     jobgroup: contr
 spec:
@@ -34,10 +34,11 @@ spec:
 {%- set width = p["width"] %}
 {%- set height = p["height"] %}
 {%- set location = p["scene_location"] %}
+{%- set worker_name = p["worker_name"] %}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: worker-{{ part }}
+  name: worker-{{ part }}{{ worker_name }}
   labels:
     jobgroup: worker
 spec:

@@ -53,8 +53,8 @@ from jinja2 import Template
 
 
 
-def main(yaml_tmpl_path, img_width, img_height, num_workers,
-         scene_location, out_yaml_path):
+def main(yaml_tmpl_path, worker_name, controller_name, img_width,
+         img_height, num_workers, scene_location, out_yaml_path):
     """Renders jinja `Job` template by filling in parameters.
 
     Parameters
@@ -82,9 +82,14 @@ def main(yaml_tmpl_path, img_width, img_height, num_workers,
     tmpl_params = {
         'params': [
             {'part': '{}-{}'.format(i, num_workers-1), 'width': img_width,
-             'height': img_height, 'scene_location': scene_location}
+             'height': img_height, 'scene_location': scene_location,
+             'worker_name': worker_name}
             for i in range(num_workers)
+        ],
+        'contr_name': [
+            {'contr_name': controller_name}, 
         ]
+
     }
 
     # fill in template parameters and output to file
@@ -102,6 +107,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Render Job templates.')
     parser.add_argument('--yaml_tmpl_path', default='job.yaml.jinja2',
                         help='Path to yaml Job template.')
+    parser.add_argument('--worker_name', default='w1',
+                        help='Name.')
+    parser.add_argument('--controller_name', default='c1',
+                        help='Name.')
     parser.add_argument('--img_width', type=int, default=1200,
                         help='Desired image width in pixels.')
     parser.add_argument('--img_height', type=int, default=900,
@@ -114,5 +123,5 @@ if __name__ == '__main__':
                         
     args = parser.parse_args()
 
-    main(args.yaml_tmpl_path, args.img_width, args.img_height,
+    main(args.yaml_tmpl_path, args.worker_name, args.controller_name, args.img_width, args.img_height,
          args.num_workers, args.scene_location, args.out_yaml_path)
