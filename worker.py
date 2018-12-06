@@ -142,7 +142,7 @@ def load_scene(scene_location):
     return state
 
 
-def main(unique_key, part, width, height, scene_location):
+def main(part, unique_key, width, height, scene_location):
     """
     """
     scene_dict = load_scene(scene_location=scene_location)
