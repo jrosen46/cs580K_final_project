@@ -77,7 +77,8 @@ def save_scene(scene, scene_location):
         pickle.dump(scene, f, pickle.HIGHEST_PROTOCOL)
 
 
-def gather_image_paths(img_dir, match_str=r'img_(\d)_of_(\d).png'):
+def gather_image_paths(img_dir, unique_key,
+                       match_str=r'(\d+)_img_(\d)_of_(\d).png'):
     """Gathers image paths into a list.
     
     # TODO: Add documentation
@@ -88,14 +89,20 @@ def gather_image_paths(img_dir, match_str=r'img_(\d)_of_(\d).png'):
     Returns
     -------
     """
+    # filter for regex match
     img_paths = sorted(
         os.path.join(img_dir, p) for p in os.listdir(img_dir)
         if re.search(match_str, p) is not None
     )
+    # now filter for correct key
+    img_paths = [p for p in img_paths
+                 if int(re.search(match_str, p).group(1)) == unique_key]
+
     return img_paths
 
 
-def workers_finished(img_dir, match_str=r'img_(\d)_of_(\d).png'):
+def workers_finished(img_dir, unique_key,
+                     match_str=r'(\d+)_img_(\d)_of_(\d).png'):
     """
     # TODO: Add documentation
 
@@ -105,12 +112,12 @@ def workers_finished(img_dir, match_str=r'img_(\d)_of_(\d).png'):
     Returns
     -------
     """
-    img_paths = gather_image_paths(img_dir, match_str)
+    img_paths = gather_image_paths(img_dir, unique_key, match_str)
 
     if not img_paths:
         return False
 
-    num_workers = int(re.search(match_str, img_paths[-1]).group(2))
+    num_workers = int(re.search(match_str, img_paths[-1]).group(3))
 
     if len(img_paths) < num_workers:
         return False
@@ -118,21 +125,22 @@ def workers_finished(img_dir, match_str=r'img_(\d)_of_(\d).png'):
     return True
 
 
-def combine_img_pieces(img_dir, width, match_str=r'img_(\d)_of_(\d).png',
+def combine_img_pieces(img_dir, unique_key, width,
+                       match_str=r'(\d+)_img_(\d)_of_(\d).png',
                        outfile='final_image.png'):
     """
     # TODO: Add documentation
 
     TODO
     ----
-    This relies on the fact that the images are named img_\d_of_\d.png.
+    This relies on the fact that the images are named \d+_img_\d_of_\d.png.
     Make it more robust.
     """
-    img_paths = gather_image_paths(img_dir, match_str)
+    img_paths = gather_image_paths(img_dir, unique_key, match_str)
     if not img_paths:
         raise ValueError("Format of img paths must have been changed ...")
 
-    num_workers = int(re.search(match_str, img_paths[0]).group(2))
+    num_workers = int(re.search(match_str, img_paths[0]).group(3))
     assert num_workers == len(img_paths)
 
     interval = width // num_workers
@@ -147,7 +155,7 @@ def combine_img_pieces(img_dir, width, match_str=r'img_(\d)_of_(\d).png',
     final_png.save(os.path.join(img_dir, outfile))
 
 
-def main(width, height, scene_location):
+def main(unique_key, width, height, scene_location):
     """
     # TODO: Add documentation
     """
@@ -155,19 +163,20 @@ def main(width, height, scene_location):
     save_scene(scene, scene_location)
 
     img_dir = os.path.dirname(scene_location)
-    while not workers_finished(img_dir):
+    while not workers_finished(img_dir, unique_key):
         time.sleep(2)
 
-    combine_img_pieces(img_dir, width)
+    combine_img_pieces(img_dir, unique_key, width)
 
 
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Tracing controller.')
+    parser.add_argument('unique_key')
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
     parser.add_argument('-s', '--scene_location', default='/data/state.pickle')
     args = parser.parse_args()
 
-    main(args.width, args.height, args.scene_location)
+    main(args.unique_key, args.width, args.height, args.scene_location)

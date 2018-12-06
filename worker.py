@@ -142,7 +142,7 @@ def load_scene(scene_location):
     return state
 
 
-def main(part, width, height, scene_location):
+def main(unique_key, part, width, height, scene_location):
     """
     """
     scene_dict = load_scene(scene_location=scene_location)
@@ -196,8 +196,9 @@ def main(part, width, height, scene_location):
             img[height - j - 1, i, :] = np.clip(col, 0, 1)
 
     # TODO: going to end up saving this to server
-    img_path = os.path.join(os.path.dirname(scene_location),
-                            f'img_{img_part+1}_of_{num_workers}.png')
+    img_path = os.path.join(
+        os.path.dirname(scene_location),
+        f'{unique_key}_img_{img_part+1}_of_{num_workers}.png')
     plt.imsave(img_path, img)
 
 
@@ -206,9 +207,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Tracing worker.')
     parser.add_argument('part', type=str,
                         help="part of image: format='{n}-{total}'")
+    parser.add_argument('unique_key')
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
     parser.add_argument('-s', '--scene_location', default='/data/state.pickle')
     args = parser.parse_args()
 
-    main(args.part, args.width, args.height, args.scene_location)
+    main(args.part, args.unique_key, args.width, args.height,
+         args.scene_location)

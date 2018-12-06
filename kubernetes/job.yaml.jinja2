@@ -17,7 +17,7 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: nfs-server
-        command: ["python", "controller.py",
+        command: ["python", "controller.py", "{{ params[0].get('unique_key') }}",
                   "--width={{ params[0].get('width') }}",
                   "--height={{ params[0].get('height') }}",
                   "--scene_location={{ params[0].get('scene_location') }}"]
@@ -35,6 +35,7 @@ spec:
 {%- set height = p["height"] %}
 {%- set location = p["scene_location"] %}
 {%- set worker_name = p["worker_name"] %}
+{%- set unique_key = p["unique_key"] %}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -54,8 +55,9 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: nfs-server
-        command: ["python", "worker.py", "{{ part }}", "--width={{ width }}",
-                  "--height={{ height }}", "--scene_location={{ location }}"]
+        command: ["python", "worker.py", "{{ part }}", "{{ unique_key }}",
+                  "--width={{ width }}", "--height={{ height }}",
+                  "--scene_location={{ location }}"]
       restartPolicy: Never
       volumes:
       - name: nfs-server
