@@ -207,7 +207,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Tracing worker.')
     parser.add_argument('part', type=str,
                         help="part of image: format='{n}-{total}'")
-    parser.add_argument('unique_key')
+    parser.add_argument('unique_key', type=int)
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
     parser.add_argument('-s', '--scene_location', default='/data/state.pickle')

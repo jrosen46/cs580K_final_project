@@ -47,11 +47,11 @@ class Controller:
         scene_params = {
             # list of scene objects
             'scene_objects': [
-                add_sphere([.75, .1, 1.], .6, [0., 0., 1.]),
-                add_sphere([-.75, .1, 2.25], .6, [.5, .223, .5]),
-                add_sphere([-2.75, .1, 3.5], .6, [1., .572, .184]),
-                add_plane([0., -.5, 0.], [0., 1., 0.],
-                          1. * np.ones(3), 0. * np.ones(3)),
+                self.add_sphere([.75, .1, 1.], .6, [0., 0., 1.]),
+                self.add_sphere([-.75, .1, 2.25], .6, [.5, .223, .5]),
+                self.add_sphere([-2.75, .1, 3.5], .6, [1., .572, .184]),
+                self.add_plane([0., -.5, 0.], [0., 1., 0.],
+                               1. * np.ones(3), 0. * np.ones(3)),
             ],
 
             # Light position and color.
@@ -87,7 +87,7 @@ class Controller:
             pickle.dump(scene, f, pickle.HIGHEST_PROTOCOL)
 
 
-    def gather_image_paths(self, img_dir)
+    def gather_image_paths(self, img_dir):
         """Gathers image paths into a list.
         
         # TODO: Add documentation
@@ -122,7 +122,7 @@ class Controller:
         Returns
         -------
         """
-        img_paths = gather_image_paths(img_dir)
+        img_paths = self.gather_image_paths(img_dir)
 
         if not img_paths:
             return False
@@ -144,7 +144,7 @@ class Controller:
         This relies on the fact that the images are named \d+_img_\d_of_\d.png.
         Make it more robust.
         """
-        img_paths = gather_image_paths(img_dir)
+        img_paths = self.gather_image_paths(img_dir)
         if not img_paths:
             raise ValueError("Format of img paths must have been changed ...")
 
@@ -182,7 +182,7 @@ def main(unique_key, width, height, scene_location):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Tracing controller.')
-    parser.add_argument('unique_key')
+    parser.add_argument('unique_key', type=int)
     parser.add_argument('--width', type=int, default=1200)
     parser.add_argument('--height', type=int, default=900)
     parser.add_argument('-s', '--scene_location', default='/data/state.pickle')
