@@ -1,4 +1,5 @@
-Step 1: Create a cluster on GKE.
+Step 1: Create a cluster on GKE. 'connect' to this cluster by adding it to
+kubectl config file. GKE provides a command to do this.
 
 Step 2: Create storage resources by executing the `start_disk.sh` script in
 the kubernetes directory.
